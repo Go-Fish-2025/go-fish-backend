@@ -185,7 +185,6 @@ def upload_fish_image():
         recognition_data = recognize_fish(access_token, signed_id)
 
         os.remove(file_path)
-        print(recognition_data['results'][0])
 
         if recognition_data['results'] is not None and len(recognition_data['results']) > 0:
             return jsonify({
