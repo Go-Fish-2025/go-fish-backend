@@ -1,8 +1,28 @@
 # go-fish-backend
-The Python Flask backend for the GoFish application.
+The Python [Flask](https://flask.palletsprojects.com/en/stable/) backend for the GoFish application.
 
 ## Built By
 Abhishek Paul
+
+## Pre-Requisites
+
+In order for the entire application to be functional end-to-end, please perform the following steps:
+
+### Downloading Firebase Service Account Key
+
+1. Create a new GoFish [Firebase](https://firebase.google.com/) Project.
+2. Go to Project Settings > Service Accounts.
+3. Click on Generate new private key.
+4. Download the `serviceAccountKey.json` file and store it in the root folder of this project (`/go-fish-backend`)
+
+### Getting the Fishial API Key
+
+1. Create a developers account in [Fishial AI](https://docs.fishial.ai/api).
+2. Generate an API Key.
+3. You need to then get the Fishial API Key ID and Secret Key and paste them [here](https://github.com/Go-Fish-2025/go-fish-backend/blob/eea4486e78219aa076050df5115cf6ad6b8822bc/routes/fish.py#L13).
+
+### Setting the server address in the mobile app
+Once your backend is up and running (locally or deployed), make sure you enter its complete address with the port number (5001) in the android mobile app code so that they can communicate with each other. You need to just replace the url in [this](https://github.com/Go-Fish-2025/go-fish-mobile-app/blob/1b5199a8bb6967818b7bd11ca703a96728bf85f7/app/src/main/java/com/garlicbread/gofish/retrofit/RetrofitInstance.kt#L10) line 
 
 ## Installation and Execution
 
@@ -49,16 +69,6 @@ You have python3 and pip3 available in your system.
 If not, you can get it from [Python Downloads](https://www.python.org/downloads/) and
 [Pip Installation](https://pip.pypa.io/en/stable/installation/) respectively.
 
-## Pre-Requisites
-
-In order for the entire application to be functional end-to-end, please perform the following steps:
-
-1. Create a new GoFish Firebase Project.
-1. Go to Project Settings > Service Accounts.
-2. Click on Generate new private key.
-3. Download the `serviceAccountKey.json` file and store it in the root folder of this project (`/go-fish-backend`)
-
-
 ## API Endpoints
 
 ### POST /fish/identify
@@ -80,7 +90,7 @@ In order for the entire application to be functional end-to-end, please perform 
   - `timezone`: Timezone the data is to be returned in
   - Either (latitude, longitude, timezone) or (location) needs to be present.
 - **Response**
-  - `200 OK` with weather forecast data of the place
+  - `200 OK` with weather forecast json data of the place
   - `401 Unauthorized` if Auth header is invalid
   - Other 400 errors
 
