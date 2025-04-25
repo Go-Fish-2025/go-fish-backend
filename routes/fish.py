@@ -6,6 +6,8 @@ from datetime import datetime
 import requests
 from flask import jsonify, Blueprint, request
 
+from routes.auth import jwt_required
+
 fish_bp = Blueprint('fish', __name__)
 
 API_KEY_ID = ""
@@ -154,6 +156,7 @@ def extract_fish_details(fish):
 
 
 @fish_bp.route('/identify', methods=['POST'])
+@jwt_required
 def upload_fish_image():
     if 'file' not in request.files:
         return jsonify({"error": "No file part"}), 400

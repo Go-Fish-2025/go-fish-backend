@@ -3,6 +3,8 @@ from datetime import datetime, date
 import requests
 from flask import Blueprint, jsonify, request
 
+from routes.auth import jwt_required
+
 weather_bp = Blueprint('weather', __name__)
 
 def get_coordinates(location):
@@ -46,6 +48,7 @@ def interpret_storm_alert(weather_code, precip_sum):
         return "No storm risk."
 
 @weather_bp.route('')
+@jwt_required
 def weather():
     location = request.args.get('location')
     latitude = request.args.get('latitude')
