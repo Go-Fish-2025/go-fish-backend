@@ -10,7 +10,7 @@ In order for the entire application to be functional end-to-end, please perform 
 
 ### Downloading Firebase Service Account Key
 
-1. Create a new GoFish [Firebase](https://firebase.google.com/) Project.
+1. Create a new GoFish [Firebase](https://firebase.google.com/) Project. The same one you will create or have created for the [mobile app](https://github.com/Go-Fish-2025/go-fish-mobile-app/tree/main).
 2. Go to Project Settings > Service Accounts.
 3. Click on Generate new private key.
 4. Download the `serviceAccountKey.json` file and store it in the root folder of this project (`/go-fish-backend`)
